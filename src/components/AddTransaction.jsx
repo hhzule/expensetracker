@@ -1,5 +1,6 @@
 import React, {useState, useContext } from 'react';
 import { GlobalContext } from '../context/GlobalState';
+import coin from '../coin.gif';
 
 
 export const AddTransaction = () => {
@@ -14,7 +15,7 @@ export const AddTransaction = () => {
         const newTransaction = {
             id: Math.floor(Math.random() * 100000000),
             text,
-            amount
+            amount: +amount
         }
 addTransaction(newTransaction);
 
@@ -33,7 +34,10 @@ addTransaction(newTransaction);
                     (negative - expense, positive - income</label>
                     <input type="number" value={amount} onChange={(e) => setAmount(e.target.value)} placeholder="Enter amount here ..."></input>
                 </div>
-                <button className="button">Add Transaction</button>
+                <div className="pic">
+               
+             <button className="button">Add Transaction</button><img className="coin" src={coin} alt="coin"/>
+             </div>
             </form>
         </div>
     )
