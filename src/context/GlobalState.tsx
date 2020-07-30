@@ -1,4 +1,4 @@
-import React, { createContext, useReducer, ReactChildren } from 'react';
+import React, { createContext, useReducer } from 'react';
 import AppReducer from './AppReducer';
 import { TransactionType, initialStateType } from "../Types";
 
@@ -10,8 +10,9 @@ const initialState : initialStateType = {
 
 };
 
+
 export const GlobalContext = createContext(initialState);
-// eslint-disable-next-line
+    
 export const GlobalProvider: React.FC = ({ children }) => {
     const [state, dispatch ] = useReducer(AppReducer, initialState);
     
@@ -29,12 +30,14 @@ function addTransaction(transaction: TransactionType){
 }
 
 
-    return(<GlobalContext.Provider value={{
+    return(
+    <GlobalContext.Provider value={{
         Transaction: state.Transaction,
         deleteTransaction,
         addTransaction
     }}>
 
         {children}
-    </GlobalContext.Provider>);
+    </GlobalContext.Provider>
+    );
 }
