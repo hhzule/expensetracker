@@ -12,5 +12,5 @@ importScripts('https://www.gstatic.com/firebasejs/7.17.1/firebase-app.js');
     appId: "1:823965271012:web:2e0c987b910b1c551c3df1"
   };
   
-  firebaseConfig.initializeApp(firebaseConfig);
+  firebase.initializeApp(firebaseConfig);
    firebase.messaging();
